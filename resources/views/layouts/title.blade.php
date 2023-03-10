@@ -8,7 +8,7 @@
                <span class="icon-bar bar3"></span>
            </button>
            <a class="navbar-brand" href="#">@yield('breadcumb')</a>
-       </div>4
+       </div>
        <div class="collapse navbar-collapse">
            <ul class="nav navbar-nav navbar-right">
              
