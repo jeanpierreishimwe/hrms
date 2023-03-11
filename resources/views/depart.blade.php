@@ -14,7 +14,7 @@
                              <div class="col-md-12">
                                  <div class="form-group">
                                      <label>Title</label>
-                                     <input type="text" class="form-control border-input" name="department_title">
+                                     <input type="text" class="form-control border-input" name="title">
                                  </div>
                              </div>
                          </div>
@@ -27,7 +27,7 @@
                              </div>
                          </div>
                          <div class="text-center">
-                             <button type="submit" class="btn btn-info btn-fill btn-wd">Save Job</button>
+                             <button type="submit" class="btn btn-info btn-fill btn-wd">Save Department</button>
                          </div>
                          <div class="clearfix"></div>
                      </form>
@@ -58,8 +58,8 @@
                                                  <th>No.</th>
                                                 <th>Departments-Lists</th>
                                                 <th>Description</th>
-                                                <th>Option.1</th>
-                                                <th>Option.2</th>
+                                               
+                                                <th>Option</th>
                                              </thead>
                                              <tbody>
                                                  @foreach ($department_list as $key =>$listing_departments ) 
@@ -67,11 +67,11 @@
                                                         <td>{{$key+1}}</td>
                                                         <td>{{$listing_departments->department_name}}</td>
                                                         <td>{{$listing_departments->description}}</td>
-                                                        <td><a href="/departme-nts/edit/{{Crypt::encrypt($listing_departments->id)}}" class="text-blue">Edit</a></td>
-                                                        <td><a href="#!" onclick="document.getElementById('delete-{{$listing_departments->id}}').submit()"  class="text-danger">Delete</a></td>
+                                                        <td><a href="/departme-nts/edit/{{Crypt::encrypt($listing_departments->id)}}" class="text-blue">Edit</a>
+                                                        <a href="#!" onclick="document.getElementById('delete-{{$listing_departments->id}}').submit()"  class="text-danger">Delete</a></td>
                                                         <form onsubmit=" return confirm('are you sure!?')" 
                                                         action="/departme-nts/delete/{{Crypt::encrypt($listing_departments->id)}}" 
-                                                        method="delete"
+                                                        method="post"
                                                         id="delete-{{$listing_departments->id}}">
                                                         @csrf
                                                         @method('DELETE')

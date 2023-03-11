@@ -14,7 +14,7 @@ class DepartmentController extends Controller
     }
     function SaveDepartments(Request $request){
         department::create([
-            'department_title'=>$request->department_name,
+            'department_name'=>$request->title,
             'description'=>$request->description,
 
         ]);
@@ -22,7 +22,7 @@ class DepartmentController extends Controller
     }
 
     function DeleteDepartments($id){
-        return department::findOrFail(Crypt::decrypt($id))->delete();
+         department::findOrFail(Crypt::decrypt($id))->delete();
         return redirect('/depart');
     }
     function EditingDepartment($id){
@@ -33,7 +33,7 @@ class DepartmentController extends Controller
     }
     function UpdateDepartments(Request $request){
         department::where('id',Crypt::decrypt($request->department_id))->update([
-           'department_title'=>$request->department_name,
+           'department_name'=>$request->department_name,
            'description'=>$request->description,
 
         ]);

@@ -44,12 +44,13 @@
                        <p>User Profile</p>
                    </a>
                </li>
-               <li class="{{Request::is('job_title')?'active':''}}">
-                <a href="/job_title">
+               <li class="{{Request::is('job_titles')?'active':''}}">
+                <a href="/job_titles">
                     <i class="ti-list"></i>
-                    <p>JOB-LIST</p>
+                    <p>JOB-LISTS</p>
                 </a>
             </li>
+            
             <li class="{{Request::is('depart')?'active':''}}">
                 <a href="/depart">
                     <i class="fa fa-building"></i>

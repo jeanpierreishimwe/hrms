@@ -8,13 +8,13 @@
                <div class="card card-user">
                   
                   <div class="content">
-                     <form action="job_title/save" method="POST">
-                      @csrf
+                    <form action="job_data/save" method="POST">
+                        @csrf
                          <div class="row">
                              <div class="col-md-12">
                                  <div class="form-group">
                                      <label>Title</label>
-                                     <input type="text" class="form-control border-input" name="title">
+                                     <input type="text" class="form-control border-input" name="add_job_title">
                                  </div>
                              </div>
                          </div>
@@ -22,7 +22,7 @@
                              <div class="col-md-12">
                                  <div class="form-group">
                                      <label>Description</label>
-                                     <textarea rows="5" class="form-control border-input" name="description" ></textarea>
+                                     <textarea rows="5" class="form-control border-input" name="add_job_description" ></textarea>
                                  </div>
                              </div>
                          </div>
@@ -61,15 +61,25 @@
                                                 <th>Option.2</th>
                                              </thead>
                                              <tbody>
-                                                {{---@foreach ($department_list as $key =>$listing_departments ) 
-                                                @endforeach--}}
-                                                <tr>
-                                                   <td>{{--$key+1--}}</td>
-                                                   <td>{{--$listing_departments->department_name--}}</td>
-                                                   <td>{{--$listing_departments->description--}}</td>
-                                                   <td><a href="" class="text-blue">Edit</a></td>
-                                                   <td><a href="" class="text-danger">Delete</a></td>
-                                                </tr>
+                                           @foreach ($jobs_list as $key =>$list_all_jobs)
+                                               
+                                           <tr>
+                                              <td>{{$key+1}}</td>
+                                              <td>{{$list_all_jobs->job_title_name}}</td>
+                                              <td>{{$list_all_jobs->description}}<td>
+                                              <td><a href="/job_data_s/edit/{{Crypt::encrypt($list_all_jobs->id)}}" class="text-blue">Edit</a></td>
+                                              <td><a href="#!" onclick="document.getElementById('dlete-{{$list_all_jobs->id}}').submit()" class="text-danger">Delete</a></td>
+                                              <form onsubmit="('are you sure')"
+                                              action="/job_s_data/delete/{{Crypt::encrypt($list_all_jobs->id)}}"
+                                              method="POST"
+                                             id="dlete-{{$list_all_jobs->id}}"
+                                              >
+                                              @csrf
+                                              @method('DELETE')
+                                            </form>
+                                           </tr>
+                                           @endforeach
+                                               
                                              </tbody>
                                          </table>
                   
