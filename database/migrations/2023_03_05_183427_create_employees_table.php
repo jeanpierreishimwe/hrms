@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('firstname',50);
             $table->string('lastname',50);
             $table->date('date_of_birth');
-            $table->foreignId('job_title_id')->constrained('job_titles','id');// $table->foreign('job_title_id')->reference('id')->ondelete('cascade');
-            $table->foreignId('department_id')->constrained('departments','id')->cascadeonDelete();
+            $table->foreignId('job_title_id')->constrained('job_titles','id')->nullable();// $table->foreign('job_title_id')->reference('id')->ondelete('cascade');
+            $table->foreignId('department_id')->constrained('departments','id')->->nullable()->cascadeonDelete();
             $table->timestamps();
         });
     }

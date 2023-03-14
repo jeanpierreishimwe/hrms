@@ -57,6 +57,12 @@
                     <p>Departments</p>
                 </a>
             </li>
+            <li class="{{Request::is('employee_s')?'active':''}}">
+                <a href="/employee_s">
+                    <i class="fa fa-user"></i>
+                    <p>Employee</p>
+                </a>
+            </li>
        <!-- </li>
         <li class="{{--Request::is('typography')?'active':''--}}">
          <a href="/typography">

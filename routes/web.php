@@ -17,16 +17,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\UserController::class,'getAllData'] ) ;
+
 Route::get('/job_titles', [App\Http\Controllers\JobTitlesController::class,'getAllJobs'] ) ;
 Route::post('/job_data/save', [App\Http\Controllers\JobTitlesController::class,'SaveJobsData'] ) ;
 Route::get('/job_data_s/edit/{id}', [App\Http\Controllers\JobTitlesController::class,'EditingJobDatas'] ) ;
 Route::post('/job_data_s/updating', [App\Http\Controllers\JobTitlesController::class,'UpdatingJobData'] ) ;
 Route::delete('/job_s_data/delete/{id}', [App\Http\Controllers\JobTitlesController::class,'DeleteJobDatas'] ) ;
+
 Route::get('/depart', [App\Http\Controllers\DepartmentController::class,'getAllDepartment'] ) ;
 Route::post('/departme-nts/save', [App\Http\Controllers\DepartmentController::class,'SaveDepartments'] ) ;
 Route::get('/departme-nts/edit/{id}', [App\Http\Controllers\DepartmentController::class,'EditingDepartment'] ) ;
 Route::post('/departme-nts/edit/updates', [App\Http\Controllers\DepartmentController::class,'UpdateDepartments'] ) ;
-Route::delete('/departme-nts/delete/{id}', [App\Http\Controllers\DepartmentController::class,'DeleteDepartments'] ) ;
+Route::delete('/departme-nts/delete/{id}', [App\Http\Controllers\DepartmentController::class,'DeleteDepartments'] );
+
+Route::get('/employee_s', [ App\Http\Controllers\EmployeesController::class,'getAllEmployeesDatas']);
+Route::post('/add_employee/data/save/register', [ App\Http\Controllers\EmployeesController::class,'RegisterEmployees']);
+Route::get('/Editing_employee/data/save/Edit/{id}', [ App\Http\Controllers\EmployeesController::class,'EditingEmployeesDatas']);
+Route::post('/updating/edit_employee/save/update', [ App\Http\Controllers\EmployeesController::class,'UpdatingEmployeesDatas']);
+Route::delete('/trash/remove_employee/delete/{id}', [ App\Http\Controllers\EmployeesController::class,'DeleteEmployee']);
+
 
     //return User::all();
  // return  User::where('email','email')->get();

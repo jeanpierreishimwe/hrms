@@ -61,7 +61,7 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-danger text-center">
-                                    <i class="ti-pulse"></i>
+                                    <i class="ti-worker"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
