@@ -63,6 +63,12 @@
                     <p>Employee</p>
                 </a>
             </li>
+            <li class="{{Request::is('attendence')?'active':''}}">
+                <a href="/attendence">
+                    <i class="fa fa-user"></i>
+                    <p>Attendence</p>
+                </a>
+            </li>
        <!-- </li>
         <li class="{{--Request::is('typography')?'active':''--}}">
          <a href="/typography">

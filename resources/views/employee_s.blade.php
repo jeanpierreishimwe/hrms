@@ -63,6 +63,7 @@
                                                    @csrf
                                                    @method('DELETE')
                                                    </form>
+                                                   
                                                    </tr>       
                                                    @endif
                                                 @endforeach

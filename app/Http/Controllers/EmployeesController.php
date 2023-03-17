@@ -24,6 +24,14 @@ class EmployeesController extends Controller
         ]);
     }
 
+    function PayStipends($id){
+        $findEmployees =employee::where('id',$id)->update([
+
+            'stipends'=>'0',
+        ]);
+        return redirect('/employee');
+    }
+
     function RegisterEmployees(Request $request){
         employee::create([
             'firstname'=> $request->regi_employee_fname,
