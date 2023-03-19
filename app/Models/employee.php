@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Models\job_title;
 use App\Models\department;
+use App\Models\attendence;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,5 +23,8 @@ class employee extends Model
     }
     public function JobsTitlesDatas(){
         return $this->belongsTo(job_title::class,'job_title_id','id');
+    }
+    public function AttendenceDatas(){
+        return $this->belongsTo(attendence::class,'employe_id','id');
     }
 }

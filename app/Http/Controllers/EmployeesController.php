@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 use App\Models\employee;
 use App\Models\job_title;
 use App\Models\department;
+use App\Models\attendence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class EmployeesController extends Controller
@@ -13,7 +16,7 @@ class EmployeesController extends Controller
     //
 
     function getAllEmployeesDatas(){
-        $employees=employee::with('DepartmentsDatas','JobsTitlesDatas')->get();
+        $employees=employee::with('DepartmentsDatas','JobsTitlesDatas','AttendenceDatas')->get();
             $jobs=job_title::all();
             $depart=department::all();
         
@@ -24,13 +27,6 @@ class EmployeesController extends Controller
         ]);
     }
 
-    function PayStipends($id){
-        $findEmployees =employee::where('id',$id)->update([
-
-            'stipends'=>'0',
-        ]);
-        return redirect('/employee');
-    }
 
     function RegisterEmployees(Request $request){
         employee::create([
@@ -40,8 +36,17 @@ class EmployeesController extends Controller
             'job_title_id'=> $request->regis_employee_job_title,
             'department_id'=> $request->regi_employee_department_name,
         ]);
+
+    //     attendence::create([
+    //         'employee_id'=>,
+    //         'attendance_date'=>today()->format("Y-m-d"),
+    //         'attendance_status'=>"none",
+    //         'stipends'=>0,
+    //     ]);
         return redirect()->back();
     }
+
+    
 
     function EditingEmployeesDatas($id){
 

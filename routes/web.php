@@ -36,15 +36,23 @@ Route::get('/Editing_employee/data/save/Edit/{id}', [ App\Http\Controllers\Emplo
 Route::post('/updating/edit_employee/save/update', [ App\Http\Controllers\EmployeesController::class,'UpdatingEmployeesDatas'])->middleware('auth');
 Route::delete('/trash/remove_employee/delete/{id}', [ App\Http\Controllers\EmployeesController::class,'DeleteEmployee'])->middleware('auth');
 
-Route::get('/attendence', [ App\Http\Controllers\AttendencesController::class,'getAttendencesEmployees'])->middleware('auth');
-Route::post('/Take_Attandance/Save', [ App\Http\Controllers\AttendencesController::class,'MakeEmployeesAttandances'])->middleware('auth');
-Route::get('/view_Attandance/watch', [ App\Http\Controllers\AttendencesController::class,'ViewAttendence'])->middleware('auth');
+//ROUTES FOR WAITED_UPDATED 
+// Route::get('/attendence', [ App\Http\Controllers\AttendencesController::class,'getAttendencesEmployees'])->middleware('auth');
+//Route::post('/Take_Attandance/Save/{id}', [ App\Http\Controllers\AttendencesController::class,'MakeEmployeesAttandances'])->middleware('auth');
+// Route::get('/view_Attandance/watch', [ App\Http\Controllers\AttendencesController::class,'ViewAttendence'])->middleware('auth');
+//Route::delete('/trash_Attandance/delete/{id}', [ App\Http\Controllers\AttendencesController::class,'DeleteAttendence'])->middleware('auth');
+// Route::get('/view_Attandance/pay/{id}', [ App\Http\Controllers\AttendencesController::class,'PayStipends'])->middleware('auth');
+
+Route::get('/attendence', [ App\Http\Controllers\AttendancesController::class,'getAllEmployeeAttendences'])->middleware('auth');
+Route::get('/attendence/present/{id}', [ App\Http\Controllers\AttendancesController::class,'present'])->middleware('auth');
+Route::get('/attendence/absent/{id}', [ App\Http\Controllers\AttendancesController::class,'absent'])->middleware('auth');
+Route::get('/stipends/attendence/pay/{id}', [ App\Http\Controllers\AttendancesController::class,'pay'])->middleware('auth');
 
     //return User::all();
  // return  User::where('email','email')->get();
  // return  User::where('email','email2@gmail.com')->get()->first();
     //return view('welcome');
-//});
+//});getAllEmployeeAttendences
 
 Route::get('/home', function () {
     return redirect('/');

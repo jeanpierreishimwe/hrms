@@ -175,6 +175,8 @@
                             <div class="form-group">
                                 <label>LasttName</label>
                                 <input type="text" class="form-control border-input"  name="regi_employee_lname">
+                                <input type="hidden" class="form-control border-input" name="attend_employee_id">
+
                             </div>
                         </div>
                     </div>
